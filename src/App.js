@@ -23,8 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <Nav links={links}/>
+        <Route exact path='/' component={Home}/>
         <Route  exact path='/:name' render = {props => <SubNav {...props} links={ links }/>}/>
-        <Home />
+        
       </div>
     );
   }
