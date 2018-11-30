@@ -5,19 +5,24 @@ import { Link } from 'react-router-dom';
 const SubNav = props => {
     
     const sublink = props.links.find(item => item.link  === props.match.params.name);
-    let darkMode = sublink === 'iPhone' || 'TV';
-    let activeclass = 'sub-nav-wrapper';
+    
+    let darkMode = sublink.link === 'iPhone' || sublink.link === 'TV';
+    let activeClass = 'sub-nav-wrapper';
     if(darkMode === true) {
-        activeclass = ' sub-nav-wrapper darkmode'
+        activeClass = 'darkmode'
     }
     
+    let darkModeLink = 'sub-nav-links';
+    if(darkMode === true) {
+        darkModeLink = 'dark-mode-links'
+    }
     return (
-        <div className={activeclass}>
+        <div className={activeClass}>
             <div className='sub-nav'>
                 {sublink.subLink.map(item => 
                 
                     <div  key={item.product} >
-                        <Link to={`/${sublink}`}className='sub-nav-links' >
+                        <Link to={`/${sublink}`}className={darkModeLink} >
                             <div className='sub-nav-img'> 
                                 <img className='sub-nav-link-img' src={item.image} alt={item.product} />
                             </div>
