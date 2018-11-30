@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const SubNav = props => {
+const SubNavz = props => {
     
     const sublink = props.links.find(item => item.link  === props.match.params.name);
     
